@@ -64,10 +64,8 @@ namespace Code.Editor
                 data.id = EditorGUILayout.TextField("ID (Name)", data.id);
                 if (GUILayout.Button("X", GUILayout.Width(20)))
                 {
-                    AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(data));
                     _database.audioDataList.RemoveAt(i);
                     EditorUtility.SetDirty(_database);
-                    AssetDatabase.SaveAssets();
                     break;
                 }
                 EditorGUILayout.EndHorizontal();
@@ -80,10 +78,7 @@ namespace Code.Editor
 
                 EditorGUILayout.EndVertical();
 
-                if (GUI.changed)
-                {
-                    EditorUtility.SetDirty(data);
-                }
+
             }
 
             EditorGUILayout.EndScrollView();

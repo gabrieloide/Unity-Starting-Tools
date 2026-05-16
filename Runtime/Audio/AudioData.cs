@@ -3,8 +3,8 @@ using UnityEngine.Audio;
 
 namespace Code.Scripts.Audio
 {
-    [CreateAssetMenu(fileName = "New Audio Data", menuName = "Starter Tools/Audio/Audio Data")]
-    public class AudioData : ScriptableObject
+    [System.Serializable]
+    public class AudioData
     {
         public string id;
         public AudioClip clip;

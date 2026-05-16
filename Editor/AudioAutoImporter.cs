@@ -56,11 +56,7 @@ namespace Code.Editor
                 AssetDatabase.CreateFolder("Assets/Resources", "Audio");
             }
 
-            string dataFolderPath = "Assets/Resources/Audio/Data";
-            if (!AssetDatabase.IsValidFolder(dataFolderPath))
-            {
-                AssetDatabase.CreateFolder("Assets/Resources/Audio", "Data");
-            }
+
 
             string[] guids = AssetDatabase.FindAssets("t:AudioClip", new[] { audioFolderPath });
             var currentClipPaths = guids.Select(AssetDatabase.GUIDToAssetPath).ToList();
@@ -71,12 +67,10 @@ namespace Code.Editor
                 AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
                 if (clip != null && !database.audioDataList.Any(d => d != null && d.clip == clip))
                 {
-                    AudioData newData = ScriptableObject.CreateInstance<AudioData>();
+                    AudioData newData = new AudioData();
                     newData.id = clip.name;
                     newData.clip = clip;
 
-                    string dataPath = $"{dataFolderPath}/{clip.name}_Data.asset";
-                    AssetDatabase.CreateAsset(newData, dataPath);
                     database.audioDataList.Add(newData);
                     Debug.Log($"[AudioImporter] Added new audio: {clip.name}");
                 }
@@ -87,11 +81,6 @@ namespace Code.Editor
             {
                 if (database.audioDataList[i] == null || database.audioDataList[i].clip == null)
                 {
-                    if (database.audioDataList[i] != null)
-                    {
-                         string path = AssetDatabase.GetAssetPath(database.audioDataList[i]);
-                         AssetDatabase.DeleteAsset(path);
-                    }
                     database.audioDataList.RemoveAt(i);
                 }
             }
