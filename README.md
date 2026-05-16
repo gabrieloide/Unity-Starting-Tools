@@ -72,17 +72,15 @@ PlayerData loaded = SaveSystem.LoadData<PlayerData>("SaveSlot1");
   SceneLoader.Instance.LoadScene("Level_01");
   ```
 
-## Folder Structure
-All systems are cleanly organized into namespaces and folders under `Assets/Code/Scripts/`:
-- `Core/`: Foundational singletons (`BaseSingleton.cs`, `GameManager.cs`).
-- `Audio/`: Audio Database, Data ScriptableObjects, and AudioManager.
-- `UI/`: UI navigation logic.
-- `System/`: Event and Scene management.
-- `Pool/`: Object pooling system.
-- `Save/`: JSON Save/Load system.
-- `Input/`: Centralized Input Reader.
-- `Assets/Code/Editor/`: Custom Editor windows (`AudioEditorWindow`).
+## Installation (Unity Package Manager)
+The recommended way to install these tools in any project is via the Unity Package Manager (UPM):
+1. Open your Unity Project.
+2. Go to **Window > Package Manager**.
+3. Click the `+` button in the top left corner and select **"Add package from git URL..."**.
+4. Paste the following link:
+   `https://github.com/gabrieloide/Unity-Starting-Tools.git`
+5. Click **Add**. Unity will automatically download and install the tools.
 
 ## Requirements
 - Unity 2021.3+ (Recommended)
-- Unity Input System Package installed.
+- Unity Input System Package installed (will be automatically installed as a dependency).
