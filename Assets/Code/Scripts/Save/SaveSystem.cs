@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace Code.Scripts.Save
                 File.WriteAllText(path, json);
                 Debug.Log($"[SaveSystem] Saved data to {path}");
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 Debug.LogError($"[SaveSystem] Error saving data: {e.Message}");
             }
@@ -37,7 +38,7 @@ namespace Code.Scripts.Save
                     string json = File.ReadAllText(path);
                     return JsonUtility.FromJson<T>(json);
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
                     Debug.LogError($"[SaveSystem] Error loading data: {e.Message}");
                     return new T();
