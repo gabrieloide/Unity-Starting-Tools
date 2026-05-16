@@ -21,7 +21,6 @@ namespace Code.Scripts.Core
         protected override void Awake()
         {
             base.Awake();
-            // Initialize game specific logic here
         }
 
         private void Start()

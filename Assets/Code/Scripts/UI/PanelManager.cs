@@ -36,7 +36,7 @@ namespace Code.Scripts.UI
                 if (!_panelsMap.ContainsKey(panel.panelId))
                 {
                     _panelsMap.Add(panel.panelId, panel);
-                    panel.gameObject.SetActive(false); // Ensure they start closed
+                    panel.gameObject.SetActive(false);
                 }
                 else
                 {

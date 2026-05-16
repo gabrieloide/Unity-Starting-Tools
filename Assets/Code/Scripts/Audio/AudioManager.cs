@@ -20,13 +20,11 @@ namespace Code.Scripts.Audio
 
         private void InitializePool()
         {
-            // Setup Music Source
             GameObject musicObj = new GameObject("MusicSource");
             musicObj.transform.SetParent(transform);
             _musicSource = musicObj.AddComponent<AudioSource>();
             _musicSource.loop = true;
 
-            // Setup SFX Pool
             for (int i = 0; i < _initialPoolSize; i++)
             {
                 CreateNewSFXSource();
@@ -52,7 +50,6 @@ namespace Code.Scripts.Audio
                     return source;
                 }
             }
-            // If all are playing, expand pool
             return CreateNewSFXSource();
         }
 
@@ -87,7 +84,7 @@ namespace Code.Scripts.Audio
             AudioData data = _database.GetAudioData(id);
             if (data == null || data.clip == null) return;
 
-            if (_musicSource.isPlaying && _musicSource.clip == data.clip) return; // Already playing
+            if (_musicSource.isPlaying && _musicSource.clip == data.clip) return;
 
             _musicSource.clip = data.clip;
             _musicSource.volume = data.volume;

@@ -43,7 +43,6 @@ namespace Code.Scripts.Pool
             {
                 objToSpawn = _poolDictionary[poolKey].Dequeue();
                 
-                // If the object was destroyed externally, recreate it
                 if (objToSpawn == null)
                 {
                     objToSpawn = Instantiate(prefab);

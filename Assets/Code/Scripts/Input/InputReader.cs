@@ -7,17 +7,9 @@ using UnityEngine.InputSystem;
 
 namespace Code.Scripts.Input
 {
-    /// <summary>
-    /// Centralized Input Reader.
-    /// Note: This script assumes you have checked "Generate C# Class" on your InputActions asset 
-    /// and named it 'InputSystem_Actions' (Unity's default). 
-    /// If you named it differently, update the type below.
-    /// </summary>
     public class InputReader : BaseSingleton<InputReader>
     {
 #if ENABLE_INPUT_SYSTEM
-        // Make sure you have a generated C# class from your .inputactions file.
-        // Default name in Unity is InputSystem_Actions.
         private InputSystem_Actions _inputActions;
 
         public static event Action<Vector2> OnMove;
@@ -30,7 +22,6 @@ namespace Code.Scripts.Input
             
             _inputActions = new InputSystem_Actions();
             
-            // Subscribe to default Action Map (e.g., "Player")
             _inputActions.Player.Move.performed += ctx => OnMove?.Invoke(ctx.ReadValue<Vector2>());
             _inputActions.Player.Move.canceled += ctx => OnMove?.Invoke(Vector2.zero);
             
