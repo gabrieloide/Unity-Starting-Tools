@@ -1,6 +1,6 @@
 {
     "name": "StarterTools.Editor",
-    "rootNamespace": "Code.Editor",
+    "rootNamespace": "",
     "references": [
         "StarterTools.Runtime"
     ],

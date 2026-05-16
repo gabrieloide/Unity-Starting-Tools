@@ -1,6 +1,6 @@
 {
     "name": "StarterTools.Runtime",
-    "rootNamespace": "Code.Scripts",
+    "rootNamespace": "",
     "references": [
         "Unity.InputSystem"
     ],
