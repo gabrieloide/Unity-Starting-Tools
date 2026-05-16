@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 namespace Code.Scripts.Audio
 {
-    [System.Serializable]
+    [global::System.Serializable]
     public class AudioData
     {
         public string id;

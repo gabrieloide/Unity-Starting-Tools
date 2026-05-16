@@ -53,6 +53,7 @@ namespace Code.Editor
 
             _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
 
+            int indexToRemove = -1;
             for (int i = 0; i < _database.audioDataList.Count; i++)
             {
                 AudioData data = _database.audioDataList[i];
@@ -64,9 +65,7 @@ namespace Code.Editor
                 data.id = EditorGUILayout.TextField("ID (Name)", data.id);
                 if (GUILayout.Button("X", GUILayout.Width(20)))
                 {
-                    _database.audioDataList.RemoveAt(i);
-                    EditorUtility.SetDirty(_database);
-                    break;
+                    indexToRemove = i;
                 }
                 EditorGUILayout.EndHorizontal();
 
@@ -77,8 +76,12 @@ namespace Code.Editor
                 data.audioMixerGroup = (UnityEngine.Audio.AudioMixerGroup)EditorGUILayout.ObjectField("Mixer Group", data.audioMixerGroup, typeof(UnityEngine.Audio.AudioMixerGroup), false);
 
                 EditorGUILayout.EndVertical();
+            }
 
-
+            if (indexToRemove != -1)
+            {
+                _database.audioDataList.RemoveAt(indexToRemove);
+                EditorUtility.SetDirty(_database);
             }
 
             EditorGUILayout.EndScrollView();
