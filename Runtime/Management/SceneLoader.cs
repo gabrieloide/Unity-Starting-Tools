@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 
-namespace Code.Scripts.System
+namespace Code.Scripts.Management
 {
     public class SceneLoader : BaseSingleton<SceneLoader>
     {

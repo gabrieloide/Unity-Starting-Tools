@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Scripts.System
+namespace Code.Scripts.Management
 {
     public static class EventManager
     {

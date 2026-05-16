@@ -101,7 +101,7 @@ namespace Code.Scripts.Audio
             }
         }
 
-        private System.Collections.IEnumerator CrossfadeCoroutine(AudioData data, float duration)
+        private global::System.Collections.IEnumerator CrossfadeCoroutine(AudioData data, float duration)
         {
             AudioSource nextSource = (_activeMusicSource == _musicSourceA) ? _musicSourceB : _musicSourceA;
             
